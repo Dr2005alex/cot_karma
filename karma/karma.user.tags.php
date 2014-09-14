@@ -15,9 +15,8 @@ Tags=page.tpl:{PAGE_OWNER_KARMA};page.list.tpl:{LIST_ROW_OWNER_KARMA}
 defined('COT_CODE') or die('Wrong URL');
 
     global $env;
-    
     // pages
-    if($env['ext'] == 'page'  && $user_data['page_id'] > 0 && $cfg['plugin']['karma']['karma_page_on']){
+    if(($env['ext'] == 'page'  && $user_data['page_id'] > 0 && $cfg['plugin']['karma']['karma_page_on']) || ($user_data['page_id'] > 0 && $user_data['page_state'] == 0)){
         
         $motive['loc'] = 'pg';
         $motive['id'] =  $user_data['page_id'];
