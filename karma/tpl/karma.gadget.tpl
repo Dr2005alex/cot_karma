@@ -6,7 +6,7 @@
 
         <!-- IF {PAGE_KARMA_URL} -->
             <a href="{PAGE_KARMA_URL}" OnClick="karma_jqm('{PAGE_KARMA_URL}','{PAGE_KARMA_MINI}');return false;">
-        <!-- ENDIF -->{PHP.color.1}
+        <!-- ENDIF -->
             <span class="karmavalue 
                   <!-- IF {PAGE_KARMA_D} < {PHP.color.1} -->value0<!-- ENDIF -->
                   <!-- IF {PAGE_KARMA_D} < {PHP.color.0} -->valueminus<!-- ENDIF -->
