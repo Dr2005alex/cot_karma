@@ -24,7 +24,7 @@ function karma_gadget($user_id, $user_karma, $location, $location_id,$module = f
         $color = explode(",",$cfg['plugin']['karma']['karma_color']);
         if (!$karma_cache[$user_id]) { 
                 $negative = (!$cfg['plugin']['karma']['neg_rec'] && $usr['profile']['user_karma'] < 0) ? false : true;  
-                $k_add = (cot_auth('plug', 'karma', 'W') && $usr['id'] > 0) ? true : "";
+                $k_add = (cot_auth('plug', 'karma', 'W') && $usr['id'] > 0 && $location != 'self') ? true : "";
 
                 $karmat = new XTemplate(cot_tplfile(array('karma','gadget'), true));
                 $module = urlencode($module);

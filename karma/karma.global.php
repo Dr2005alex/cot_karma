@@ -15,6 +15,17 @@ Hooks=global
  */
 
 defined('COT_CODE') or die('Wrong URL.');   
+
+/**
+ * Вывод собственной репутации
+ * @return string- возвращаем гаджет.
+ */
+function karma_self()
+{
+        require_once cot_incfile('karma', 'plug');
+        return  karma_gadget($usr['id'], $urr['profile']['user_karma'], 'self', $usr['id']);
+}
+
 if($usr['id'] > 0 && $cfg['plugin']['karma']['karma_auth'] > 0)
 {
 	$lastauth_karma = $_COOKIE["lastauth_karma"];
