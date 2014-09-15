@@ -19,7 +19,7 @@ require_once cot_langfile('karma', 'plug');
 
 function karma_gadget($user_id, $user_karma, $location, $location_id,$module = false)
 {
-    global $usr, $cfg, $karma_cache,$color;
+    global $usr, $cfg, $karma_cache, $color;
     
         $color = explode(",",$cfg['plugin']['karma']['karma_color']);
         if (!$karma_cache[$user_id]) { 
@@ -32,7 +32,7 @@ function karma_gadget($user_id, $user_karma, $location, $location_id,$module = f
                     "PAGE_KARMA_D" => number_format($user_karma, '1', '.', ' '),
                     "PAGE_KARMA_ADD" =>($user_id != $usr['id'] && $k_add )? cot_url('plug','r=karma&act=change&lct='.$location.'&value=add&fp='.$location_id.'&mod='.$module):false,
                     "PAGE_KARMA_DEL" =>($user_id != $usr['id'] && $negative && $k_add)? cot_url('plug','r=karma&act=change&lct='.$location.'&value=del&fp='.$location_id.'&mod='.$module):false,
-                    "PAGE_KARMA_URL" => ($k_add) ? cot_url('plug','r=karma&act=show&fp='.$user_id): false,
+                    "PAGE_KARMA_URL" => ($k_add || $location == 'self') ? cot_url('plug','r=karma&act=show&fp='.$user_id): false,
                     "PAGE_KARMA_MINI" => ($cfg['plugin']['karma']['karma_com']) ? '': 'karma_mini'
                 ));
                 $karmat->parse('MAIN');

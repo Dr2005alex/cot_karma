@@ -21,9 +21,9 @@ defined('COT_CODE') or die('Wrong URL.');
  * @return string- возвращаем гаджет.
  */
 function karma_self()
-{
+{     global $usr;
         require_once cot_incfile('karma', 'plug');
-        return  karma_gadget($usr['id'], $urr['profile']['user_karma'], 'self', $usr['id']);
+        return  karma_gadget($usr['id'], $usr['profile']['user_karma'], 'self', $usr['id']);
 }
 
 if($usr['id'] > 0 && $cfg['plugin']['karma']['karma_auth'] > 0)
