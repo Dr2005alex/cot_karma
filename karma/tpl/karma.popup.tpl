@@ -51,7 +51,7 @@
            {PHP.L.f_karma}: {KARMA_NAME_USER}  <span class="karmavalue">{KARMA_USER_KARMA_FULL}</span>
             <!-- IF {PHP.cfg.plugin.karma.karma_auth} > 0 -->   
             <div class="karmadesc">
-                {KARMA_USER_KARMA} {PHP.L.userball} + {KARMA_AUTH_VALUE} {PHP.L.authball} {KARMA_AUTH_COUNT}.
+                {KARMA_USER_VALUE} {PHP.L.userball} + {KARMA_AUTH_VALUE} {PHP.L.authball} {KARMA_AUTH_COUNT}.
             </div>   
             <!-- ENDIF --> 
         </div>

@@ -248,7 +248,7 @@ switch ($act){
         
         $kr->assign(array(
             "KARMA_NAME_USER"=>$thiss['user_name'],
-            "KARMA_USER_KARMA"=>number_format($tmp['karma'], '1', '.', ' '),
+            "KARMA_USER_VALUE"=>number_format($tmp['karma'], '1', '.', ' '),
             "KARMA_USER_KARMA_FULL"=>number_format($thiss['user_karma'], '1', '.', ' '),
             "KARMA_USERS"=>cot_declension($total_p,$L['userkarma']),
             "KARMA_ADMIN"=>(cot_auth('plug', 'karma', 'A')) ? true : "",
