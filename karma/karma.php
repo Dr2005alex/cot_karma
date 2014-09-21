@@ -240,7 +240,13 @@ switch ($act){
         
         $tmp = $db->query("SELECT COUNT(*),SUM(karma_value) AS karma FROM cot_karma WHERE karma_recipient = $fp")->fetch();
         $total_p = $tmp['COUNT(*)'];
-        $sql = $db->query("SELECT u.*, k.*,c.com_code,c.com_id FROM cot_karma k LEFT JOIN $db_users u ON (u.user_id=k.karma_rater) LEFT JOIN $db_com c ON (c.com_id=k.karma_fp) WHERE k.karma_recipient = $fp  ORDER BY k.karma_id DESC LIMIT $kn, ".$cfg['plugin']['karma']['karma_maxpage']."");
+        if(cot_plugin_active('comments'))
+        {
+            $sql = $db->query("SELECT u.*, k.*,c.com_code,c.com_id FROM cot_karma k LEFT JOIN $db_users u ON (u.user_id=k.karma_rater) LEFT JOIN $db_com c ON (c.com_id=k.karma_fp) WHERE k.karma_recipient = $fp  ORDER BY k.karma_id DESC LIMIT $kn, ".$cfg['plugin']['karma']['karma_maxpage']."");
+        }  else {
+            
+            $sql = $db->query("SELECT u.*, k.* FROM cot_karma k LEFT JOIN $db_users u ON (u.user_id=k.karma_rater)  WHERE k.karma_recipient = $fp  ORDER BY k.karma_id DESC LIMIT $kn, ".$cfg['plugin']['karma']['karma_maxpage']."");
+        }
         $sql1 = $db->query("SELECT * FROM $db_users WHERE user_id = $fp LIMIT 1");
         $thiss = $sql1->fetch();
         

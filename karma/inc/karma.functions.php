@@ -20,7 +20,7 @@ require_once cot_langfile('karma', 'plug');
 if(cot_module_active('page'))cot::$db->registerTable('pages');
 if(cot_module_active('forums'))cot::$db->registerTable('forum_posts');
 if(cot_module_active('users'))cot::$db->registerTable('users');
-
+if(cot_plugin_active('comments'))cot::$db->registerTable('com');
 
 function karma_gadget($user_id, $user_karma, $location, $location_id,$module = false)
 {
