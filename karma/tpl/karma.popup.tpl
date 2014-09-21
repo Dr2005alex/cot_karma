@@ -35,7 +35,7 @@
         <input type="hidden" name="lct_pg" value="{KARMA_LOCATION}">
         <input type="hidden" name="mod" value="{KARMA_MOD}">
         <!-- IF {PHP.cfg.plugin.karma.karma_com} -->
-        <textarea class="minieditor" name="reason"  rows="4" cols="70"></textarea>
+        <textarea  name="reason"  rows="4" cols="70"></textarea>
         <!-- ENDIF -->
         <button id="formbutton">{PHP.L.Submit}</button>
         <div id="karma_mess"></div>

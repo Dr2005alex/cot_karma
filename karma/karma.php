@@ -81,14 +81,14 @@ switch ($act){
             
         }elseif($lct == "frm"){
             
-            if(cot_module_active('forums'))cot::$db->registerTable('forum_posts');
+
             $sql = $db->query("SELECT f.fp_text, u.* FROM $db_forum_posts f LEFT JOIN $db_users u ON (f.fp_posterid=u.user_id) WHERE f.fp_id = $fp LIMIT 1");
         
             
         }elseif($lct == "pg")
             {
             
-            if(cot_module_active('forums'))cot::$db->registerTable('pages');
+
             
             $sql = $db->query("SELECT f.page_title,f.page_desc, u.* FROM $db_pages f LEFT JOIN $db_users u ON (f.page_ownerid=u.user_id) WHERE page_id = $fp ");
        
@@ -133,7 +133,7 @@ switch ($act){
         $kr->assign(array(
             "KARMA_BAL"=>cot_declension($ex_value,$L['bal_karma']),
             "KARMA_ACT" => $do,
-            "KARMA_USER" => "<a href=\"".cot_url('users','m=details&amp;id='.$row['user_id'])."\" target=\"_blank\" class=\"info\">".$row['user_name']."</a>",
+            "KARMA_USER" => "<a href=\"".cot_url('users','m=details&amp;id='.$row['user_id'])."\" target=\"_blank\" >".$row['user_name']."</a>",
             "KARMA_LCT"=>($lct == "ud")? false:true,
             "KARMA_POST"=>  cot_cutstring($post_text, 200),
             "KARMA_POST_LCT" => $L['do_'.$lct], 
@@ -304,7 +304,7 @@ switch ($act){
                         {
                             // page
                             $c = $karmaarr[1];
-                            $view_url=($karmaarr[0])? cot_url('page','al='.$karmaarr[0],'#c'.$row['com_id']):cot_url('page','id='.$row['karma_fp'],"#c".$row['com_id']);
+                            $view_url=($karmaarr[0])? cot_url('page','al='.$karmaarr[0],'#c'.$row['com_id']):cot_url('page',$karmaarr[3],"#c".$row['com_id']);
                             
                         }
                         elseif($karmaarr[2] && $karmaarr[3])
